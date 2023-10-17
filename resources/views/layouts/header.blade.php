@@ -16,7 +16,7 @@
                 <p>THE BIGGEST CHOICE OF THE WEB</p>
             </div>
             <div class="btn">
-                <input type="button" name="" value="Log in">
+                <a href="{{url('/login')}}"><input type="button" name="" value="Log in"></a>
             </div>
         </div>
     </div>
@@ -24,12 +24,11 @@
          <div class="pagnation">
             <div class="list">
                 <ul>
-                    <li>HOME</li>
-                    <li>NEW PROJECT</li>
-                    <li>SPECIAL</li>
-                    <li>ALL PRODUCTS</li>
+                   <a href="{{url('/')}}"><li>ALL PRODUCTS</li></a>
+                   <a href="{{url('/category')}}"> <li>CATEGORY</li></a>>
+                   <a href="{{url('/addproduct')}}"><li>ADD PRODUCT</li></a>
                     <li>REVIEWS</li>
-                    <li>CONTACT</li>
+                    <a href="{{url('/contact')}}">  <li>CONTACT</li></a>
                     <li>FAQS</li>
                 </ul>
             </div>

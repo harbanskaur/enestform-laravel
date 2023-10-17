@@ -3,19 +3,14 @@
         <p>CATEGORIES</p>
     </div>
     <div class="items">
+       @isset($data)
+        
         <ul>
-            <li>TVs</li>
-            <li>Dishwasher</li>
-            <li>Ranges</li>
-            <li>Computer</li>
-            <li>Blu-ray & DVD Player</li>
-            <li>Projectors</li>
-            <li>Hometheater System</li>
-            <li>Cameras</li>
-            <li>Camcorders</li>
-            <li>Washer & Dryers</li>
-            <li>Refrigerators</li>
-            <li>Microwaves</li>
-        </ul>
+        @foreach($data as $row)
+            <li>{{ $row ->name }}</li>
+        @endforeach
+        </ul> 
+       
+   @endisset
     </div>
 </div>
