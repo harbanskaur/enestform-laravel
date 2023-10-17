@@ -20,3 +20,4 @@ Route::get('/login',[icontroller::class,'login'])->name('login');
 Route::get('/contact',[icontroller::class,'contact'])->name('contact');
 
 Route::get('/display-all',[icontroller::class,'display_all'])->name('display-all');
+Route::get('productshow/{id}',[icontroller::class, 'showproducts'])->name('showproducts');

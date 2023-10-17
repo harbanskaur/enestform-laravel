@@ -18,7 +18,9 @@
 						<!-- <div class="cam-info"> -->
 							<div class="samsung-cam">
 								<div class="cam-info">
-									<img src={{$rows->image}}>
+								
+									<img src="{{asset('public/product_images'.$rows->image)}}" height="40" width="50"/>
+								
 									<div class="sam-prc">
 										<span>{{$rows->pname}}</span>
 										<p>{{$rows->price}}</p>

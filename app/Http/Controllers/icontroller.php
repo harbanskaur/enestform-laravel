@@ -32,7 +32,15 @@ class icontroller extends Controller
     {
         return view('/contact');// contact page 
     }
-    //diplay categories in left page 
-   
-    //display all products in home page 
+    public function showproducts($id) 
+    {
+        echo "hello";
+        // $categories=category::with('products')->get($id);
+       
+        // if (!$categories)
+        // {
+        //     return redirect()->back()->with('error', 'Category not found!');
+        // }
+        // return view('/category',['products' =>$categories->products]);
+    }
 }
