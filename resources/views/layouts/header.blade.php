@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <title>Document</title> 
 </head>
 <body>
@@ -16,7 +16,13 @@
                 <p>THE BIGGEST CHOICE OF THE WEB</p>
             </div>
             <div class="btn">
-                <a href="{{url('/login')}}"><input type="button" name="" value="Log in"></a>
+                @if(!Auth::guard('signup')->check())
+
+                <a href="{{url('/login')}}"><input type="button" name="" value="Log In"></a>
+                @else
+
+                <a href="{{url('/logout')}}"><input type="button" name="" value="Log Out : {{Auth::guard('signup')->user()->fullname}}">:</a>
+                @endif
             </div>
         </div>
     </div>
@@ -28,7 +34,7 @@
                    <a href="{{url('/category')}}"> <li>CATEGORY</li></a>>
                    <a href="{{url('/addproduct')}}"><li>ADD PRODUCT</li></a>
                     <li>REVIEWS</li>
-                    <a href="{{url('/contact')}}">  <li>CONTACT</li></a>
+                    <a href="{{url('/contact')}}"><li>CONTACT</li></a>
                     <li>FAQS</li>
                 </ul>
             </div>

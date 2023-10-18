@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class product extends Model
+class cart extends Model
 {
     use HasFactory;
-    protected $table="product";
+    protected $table="cart";
     public $timestamps=false;
-   
 }

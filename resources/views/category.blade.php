@@ -3,26 +3,25 @@
 		<div class="main-categorious">
 			<div class="footer">
 				@include('layouts.left')
-
-				@foreach($data as $row)
-
+			
 				<div class="contact">
+				
 					<div class="contact-us">
-						<p>Dishwasher</p>
+						
+						@foreach($categories as $item)
+						<p>{{$item->name}}</p>
+						@endforeach
+						
 					</div>
+			
 					<div class="product-info">
 						<span>Sort by:</span>
 						<form>
-							@if($products->isEmpty())
-							<p>no products available for this category.</p>
-							@else
+							
 							<select>
-								@foreach($products as $row)
-								<option>product name</option>
-								<option>{{$products->pname}}</option>
-								@endforeach
+								<option>product name</option>	
 							</select>
-							@endif
+							
 						</form>
 					</div>
 					<div class="display-product">
@@ -32,35 +31,40 @@
 							<input class="nxt" type="submit" name="" value="Next">
 						</div>
 					</div>
+					
+					@foreach($dataa as $rows)
 					<div class="dish-info">
 						<div class="machine-pic">
 							<div class="img">
-								<img src="images/1.jpeg">
+								<img src="{{asset($rows->image)}}">
 							</div>
 							<div class="stock">
-								<p>In Stock: 988</p>
+								<p>In Stock:{{$rows->stock}}</p>
 							</div>
 						</div>
 						<div class="machine-info">
 							<div class="date">
-								<span> Date Added:2013-06-01  08:05:32</span>
+								<span>Date:{{ \Carbon\Carbon::now()->format('jS F Y') }}</span>
 							</div>
 							<!-- <hr class="hr"> -->
 							<div class="washer">
-								<p>Dishwasher</p>
+								<p>{{$rows->pname}}</p>
 							</div>
 							<div class="model-info">
-								<span>Model:Dishwasher</span>
-								<p>Manufacturer:Dishwasher</p>
+								<span>Model:{{$rows->pname}}</span>
+								<p>Discription:{{$rows->desc}}</p>
 							</div>
 							<div class="price">
-								<span>Rs.6500</span>
+								<span>{{$rows->pprice}}</span>
 							</div>
 							<div class="checkout">
-								<input type="submit" name="" value="BUY NOW">
+								<a href="{{url('addproduct/'.$rows->id)}}"><input type="submit" name="" value="BUY NOW"></a>
 							</div>
 						</div>
 					</div>
+					@endforeach
+					
 				</div>
+				
 			</div>
 	@endsection

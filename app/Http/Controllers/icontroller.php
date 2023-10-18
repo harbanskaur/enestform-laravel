@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\product;
-use App\Http\Controllers\Controller;
+use App\Models\contact;
+use App\Models\cart;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
 class icontroller extends Controller
@@ -14,33 +17,54 @@ class icontroller extends Controller
         $categories=product::all();
         return view('home',compact('data','categories'));// main page 
     }
-    public function category()
+    public function category($id)
     {
         $data=category::all();
-        return view('/category',compact('data'));// selected categories 
-    }
-    public function addproduct()
-    {
-        $data=category::all();
-        return view('/addproduct',compact('data'));// to add to cart 
+        $categories=category::where('id',$id)->get();
+        $dataa=product::where('cid',$id)->get();
+        return view('category',compact('data','dataa','categories'));// selected categories 
     }
     public function login()
     {
-        return view('/login'); // login page 
+       
+        return view('login'); // login page 
     }
     public function contact()
     {
-        return view('/contact');// contact page 
+        
+        $data=category::all();
+        return view('/contact',compact('data'));
     }
-    public function showproducts($id) 
+    public function contact1(Request $request)
+    {   
+        $add=new contact;
+        if($request->isMethod('post'))
+        {
+            $add->name=$request->get('name');
+            $add->email=$request->get('email');
+            $add->text=$request->get('text');
+            $add->save();
+            
+        }
+        return redirect()->back(); 
+    }
+    public function addproduct($id)
     {
-        echo "hello";
-        // $categories=category::with('products')->get($id);
-       
-        // if (!$categories)
-        // {
-        //     return redirect()->back()->with('error', 'Category not found!');
-        // }
-        // return view('/category',['products' =>$categories->products]);
+        $data=category::all(); 
+        $dataa=product::where('id',$id)->get();
+        return view('/addproduct',compact('data','dataa','$userid'));// selected categories 
+    }
+    public function cart(Request $request)
+    {
+        $add=new cart;
+        if($request->isMethod('post'))
+        {
+            $add->user_id=$request->get('user');
+            $add->product_id=$request->get('product');
+            $add->quantity=$request->get('quantity');
+            $add->save();
+            
+        }
+        return redirect('addproduct'); 
     }
 }

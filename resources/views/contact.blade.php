@@ -2,27 +2,7 @@
 @section('main-section')
 		<div class="main-categorious">
 			<div class="footer">
-				<div class="categorious">
-					<div class="cate-heading">
-						<p>CATEGORIES</p>
-					</div>
-					<div class="items">
-						<ul>
-							<li>TVs</li>
-							<li>Dishwasher</li>
-							<li>Ranges</li>
-							<li>Computer</li>
-							<li>Blu-ray & DVD Player</li>
-							<li>Projectors</li>
-							<li>Hometheater System</li>
-							<li>Cameras</li>
-							<li>Camcorders</li>
-							<li>Washer & Dryers</li>
-							<li>Refrigerators</li>
-							<li>Microwaves</li>
-						</ul>
-					</div>
-				</div>
+				@include('layouts.left')
 				<div class="contact">
 					<div class="contact-us">
 						<p>CONTACT US</p>
@@ -53,19 +33,23 @@
 								</div>
 								<div class="input-info">
 									<div class="input-information">
-										<form>
-											<table class=" form">
+										<form method="post" action="{{url('/contact1')}}">
+											@csrf
+											<table class=" form" >
 												<tr>
 													<td ><p>full Name* </p></td>
-													<td><input type="text" name=""></td>
+													<td><input type="text" name="name"></td>
 												</tr>
 												<tr>
 													<td > <p>E-mail Address </p></td>
-													<td><input type="text" name=""></td>
+													<td><input type="email" name="email"></td>
 												</tr>
 												<tr>
 													<td> <p>Message</p></td>
-													<td><textarea></textarea></td>
+													<td><textarea name="text"></textarea></td>
+												</tr>
+												<tr>
+													<td><button type="submit" name="save">Send Now</button></td>
 												</tr>
 											</table>
 										</form>
@@ -73,9 +57,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="snd-btn">
-							<button>Send Now</button>
-						</div>
+
 					</div>
 				</div>
 			

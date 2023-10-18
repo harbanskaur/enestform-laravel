@@ -5,50 +5,62 @@
 				@include('layouts.left')
 				<div class="contact">
 					<div class="contact-us">
-						<p>Dishwasher</p>
+						@foreach($dataa as $rows)
+						<p>{{$rows->pname}}</p>
+					
 					</div>
+				
 					<div class="dish-info">
 						<div class="machine-pic">
 							<div class="img">
-								<img src="images/1.jpeg">
+								<img src="{{asset($rows->image)}}">
 							</div>
 							<div class="stock">
-								<p>In Stock: 988</p>
+								<p>In Stock:{{$rows->stock}}</p>
 							</div>
 							<div class="detail">
-								<span>Details:</span>
-								<p>Dishwasher</p>
+								<span>Details:{{$rows->desc}}</span>
+								<p>{{$rows->pname}}</p>
 							</div>
 						</div>
 						<div class="machine-info">
 							<div class="washer">
-								<p>Dishwasher</p>
+								<p>{{$rows->pname}}</p>
 							</div>
 							<div class="model-info">
-								<span>Model:Dishwasher</span>
-								<p>Manufacturer:Dishwasher</p>
+								<span>Model:{{$rows->pname}}</span>
+								<p>Manufacturer:{{$rows->desc}}</p>
 							</div>
 							<div class="quantity">
-								<form>
+								<form method="post" action="">
 									<table>
 										<tr>
+											<td><input type="number"  hidden name="user" value=""></td>
+										</tr>
+										<tr>
+											
+											<td><input type="number" hidden  name="product" value=""></td>
+										</tr>
+										<tr>
 											<td class="qty">Enter quantity</td>
-											<td><input type="" name=""></td>
+											<td><input type="number" name="quantity"></td>
 										</tr>
 									</table>
-								</form>
+							
 								<div class="price">
-									<span>Rs.6500</span>
+									<span>{{$rows->pprice}}</span>
 								</div>
 							</div>
 							<div class="cart">
-								<input type="submit" name="" value="Add to Cart">
+								<input type="submit" name="save" value="Add to Cart">
 							</div>
+						</form>
 							<div class="checkout">
 								<input type="submit" name="" value="checkout">
 							</div>
 						</div>
 					</div>
+					@endforeach
 					<div class="info">
 						<form>
 							<table class="table-info">

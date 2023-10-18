@@ -1,6 +1,9 @@
 @extends('layouts.main')
     @section('main-section')
 		<div class="main-categorious">
+			@if (session('success'))
+				{{session('success')}}
+			@endif
 			<div class="footer">
 				<div class="main-img">
 					<img src="assets/images/16.png">
@@ -16,10 +19,11 @@
 					@foreach($categories as $rows)
 					<div class="Camera-info">
 						<!-- <div class="cam-info"> -->
+
 							<div class="samsung-cam">
 								<div class="cam-info">
 								
-									<img src="{{asset('public/product_images'.$rows->image)}}" height="40" width="50"/>
+									<img src="{{asset($rows->image)}}" height="40" width="50"/>
 								
 									<div class="sam-prc">
 										<span>{{$rows->pname}}</span>
