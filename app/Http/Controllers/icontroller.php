@@ -5,7 +5,7 @@ use App\Models\category;
 use App\Models\product;
 use App\Models\contact;
 use App\Models\cart;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;//authentication
 
 use Illuminate\Http\Request;
 
@@ -52,19 +52,25 @@ class icontroller extends Controller
     {
         $data=category::all(); 
         $dataa=product::where('id',$id)->get();
-        return view('/addproduct',compact('data','dataa','$userid'));// selected categories 
+        return view('/addproduct',compact('data','dataa'));// selected categories 
     }
     public function cart(Request $request)
     {
-        $add=new cart;
-        if($request->isMethod('post'))
-        {
-            $add->user_id=$request->get('user');
-            $add->product_id=$request->get('product');
-            $add->quantity=$request->get('quantity');
-            $add->save();
-            
+        $productId = $request->get('product_id');
+        $quantity = $request->get('qty');
+        $product=product::find($productId);
+        if ($quantity <= 0) {
+            return redirect()->back()->with('error','Quantity must be greater than 0.');
         }
-        return redirect('addproduct'); 
+        if($request->isMethod('post')){
+            product::where('id', $productId)->decrement('stock', $quantity);
+            $userId = Auth::guard('signup')->id();
+            $addtocart=new cart;
+            $addtocart->user_id = $userId;
+            $addtocart->product_id=$productId;  
+            $addtocart->quantity=$quantity;
+            $addtocart->save();
+        }
+        return redirect()->back()->with('success', 'Product added to cart.');
     }
 }

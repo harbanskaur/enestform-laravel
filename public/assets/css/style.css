@@ -1534,3 +1534,9 @@ body{
 	font-weight: bold;
 	color:darkgray;
 }
+.session{
+	background-color:lightgreen;
+	color:black;
+	text-align:center;
+	font-size:15px;
+}

@@ -58,13 +58,15 @@
 								<span>{{$rows->pprice}}</span>
 							</div>
 							<div class="checkout">
-								<a href="{{url('addproduct/'.$rows->id)}}"><input type="submit" name="" value="BUY NOW"></a>
+								@if(!Auth::guard('signup')->check())
+									<a href="{{url('login')}}"><input type="submit" name="" value="Login First"></a>
+								@else
+									<a href="{{url('addproduct/'.$rows->id)}}"><input type="submit" name="" value="BUY NOW"></a>
+								@endif        
 							</div>
 						</div>
 					</div>
 					@endforeach
-					
 				</div>
-				
 			</div>
 	@endsection

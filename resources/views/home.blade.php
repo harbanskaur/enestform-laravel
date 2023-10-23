@@ -1,9 +1,11 @@
 @extends('layouts.main')
     @section('main-section')
 		<div class="main-categorious">
+			
 			@if (session('success'))
-				{{session('success')}}
+			<div class="session">	{{session('success')}}</div>
 			@endif
+			
 			<div class="footer">
 				<div class="main-img">
 					<img src="assets/images/16.png">

@@ -27,3 +27,4 @@ Route::post('/signup',[authcontroller::class,'signup'])->name('signup');
 Route::post('/login-data',[authcontroller::class,'login_post'])->name('login.data');
 Route::get('/logout',[authcontroller::class,'logout'])->name('logout');
 Route::post('/cart',[icontroller::class,'cart'])->name('cart');
+

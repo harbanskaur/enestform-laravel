@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\login;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
@@ -15,7 +16,7 @@ class authcontroller extends Controller
         $request->validate([
             'fullname' => 'required',
             'email' => 'required|email|unique:signup',
-            'password' => 'required|min:6',
+            'password' => 'required|min:5',
         ]);
 
         $register=new login;
@@ -30,7 +31,7 @@ class authcontroller extends Controller
     public function login_post(Request $request){
         $request->validate([
             'fullname' => 'required',
-            'password' => 'required|min:6',
+            'password' => 'required|min:5',
         ]);
         $credentials = $request->only('fullname', 'password');
         if (Auth::guard('signup')->attempt($credentials)) {
