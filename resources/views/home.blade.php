@@ -1,18 +1,17 @@
 @extends('layouts.main')
-    @section('main-section')
-		<div class="main-categorious">
-			
+@section('main-section')
+{{-- section starts --}}
+	<div class="main-categorious">
+		{{-- validation msg --}}
 			@if (session('success'))
 			<div class="session">	{{session('success')}}</div>
 			@endif
-			
+		{{-- validation msg --}}
 			<div class="footer">
 				<div class="main-img">
 					<img src="assets/images/16.png">
 				</div>
-
 				@include('layouts.left')
-
 				<div class="contact">
 					<div class="contact-us">
 						<p>FEATURED PRODUCTS</p>
@@ -21,12 +20,9 @@
 					@foreach($categories as $rows)
 					<div class="Camera-info">
 						<!-- <div class="cam-info"> -->
-
 							<div class="samsung-cam">
 								<div class="cam-info">
-								
-									<img src="{{asset($rows->image)}}" height="40" width="50"/>
-								
+									<img src="{{asset($rows->image)}}" height="40" width="50"/>								
 									<div class="sam-prc">
 										<span>{{$rows->pname}}</span>
 										<p>{{$rows->price}}</p>
@@ -45,4 +41,5 @@
 					@endforeach
 					@endisset
 				</div>
+				{{-- section ends --}}
 			@endsection

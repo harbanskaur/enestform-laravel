@@ -6,7 +6,6 @@
 
     @isset ($data)
         <ul>
-
             @foreach($data as $row)
             <a href="{{url('category/'.$row->id) }}">
                 <li>{{ $row ->name }}</li>

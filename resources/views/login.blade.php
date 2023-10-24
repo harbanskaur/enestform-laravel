@@ -1,12 +1,14 @@
 @extends('layouts.main')
 @section('main-section')
+{{-- section starts --}}
 <div class="main-categorious">
-	
+	{{-- validation msg --}}
 	@if(session('success'))
 	<div class="session">	{{session('success')}} </div>
 	@elseif(session('error'))
 	<div class="session">	{{session('error')}} </div>
 	@endif
+	{{-- validation msg --}}
 	<div class="footer">
 		<div class="login-here">
 			<div class="login">
@@ -78,4 +80,5 @@
 			</div>
 		</div>
 	</div>
+	{{-- section ends  --}}
 @endsection
