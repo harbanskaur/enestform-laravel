@@ -51,6 +51,7 @@
 							<span>{{$rows->pprice}}</span>
 						</div>
 						<div class="checkout">
+						{{-- login / buy now  --}}
 							@if(!Auth::guard('signup')->check())
 								<a href="{{url('login')}}"><input type="submit" name="" value="Login First"></a>
 							@else

@@ -36,6 +36,7 @@
 							<div class="input-information">
 								<form method="post" action="{{url('/contact1')}}">
 									@csrf
+									{{-- table starts --}}
 									<table class=" form" >
 										<tr>
 											<td ><p>full Name* </p></td>
@@ -53,6 +54,7 @@
 											<td><button type="submit" name="save">Send Now</button></td>
 										</tr>
 									</table>
+									{{-- table ends --}}
 								</form>
 							</div>
 						</div>

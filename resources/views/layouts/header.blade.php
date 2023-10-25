@@ -16,6 +16,7 @@
                 <p>THE BIGGEST CHOICE OF THE WEB</p>
             </div>
             <div class="btn">
+                {{-- logout / login  --}}
                 @if(!Auth::guard('signup')->check())
 
                 <a href="{{url('/login')}}"><input type="button" name="" value="Log In"></a>

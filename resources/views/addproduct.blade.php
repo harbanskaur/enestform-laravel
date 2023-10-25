@@ -40,6 +40,7 @@
 					<div class="quantity">
 						<form method="post" action="{{route('cart')}}">
 							@csrf
+						 {{-- table starts --}}
 							<table>
 								<tr>
 									<td><input type="number" hidden  name="product_id" value="{{$rows->id}}"></td>
@@ -49,6 +50,7 @@
 									<td><input type="number" name="qty"></td>
 								</tr>
 							</table>
+							{{-- table ends  --}}
 						<div class="price">
 							<span>{{$rows->pprice}}</span>
 						</div>
@@ -65,6 +67,7 @@
 			@endforeach
 			<div class="info">
 				<form>
+					{{-- table 2 starts --}}
 					<table class="table-info">
 						<tr>
 							<td class="nme">Enter name</td>
@@ -88,6 +91,7 @@
 							</td>
 						</tr>
 					</table>
+					{{-- table 2 ends --}}
 				</form>
 			</div>
 		</div>

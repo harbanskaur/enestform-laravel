@@ -16,6 +16,7 @@
 				<div  class="user-info">
 					<form method="post" action="{{route('login.data')}}">
 						@csrf
+						{{-- login table starts --}}
 						<table class="login-1">
 							<tr class="inpt">
 								<td ><span>Username</span></td>
@@ -31,6 +32,7 @@
 								</td>
 							</tr>
 						</table>
+						{{-- login table ends --}}
 					</form>
 				</div>
 			</div>
@@ -42,6 +44,7 @@
 			<div  class="user-info">
 				<form method="post" action="{{route('signup')}}">
 					@csrf
+					{{-- signup table starts --}}
 					<table class="login-1">
 						<tr class="inpt-1">
 							<td ><span>Full Name</span></td>
@@ -76,6 +79,7 @@
 							</td>
 						</tr>
 					</table>
+					{{-- signup table ends --}}
 				</form>
 			</div>
 		</div>
