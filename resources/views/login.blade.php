@@ -1,14 +1,21 @@
 @extends('layouts.main')
+@push('title')
+Login Page 
+@endpush
 @section('main-section')
 {{-- section starts --}}
 <div class="main-categorious">
-	{{-- validation msg --}}
+	{{-- validation msg for success--}}
 	@if(session('success'))
-	<div class="session">	{{session('success')}} </div>
+	<div class="session">	
+		{{session('success')}} 
+	</div>
+	{{-- validation msg  for error--}}
 	@elseif(session('error'))
-	<div class="session">	{{session('error')}} </div>
+	<div class="session">	
+		{{session('error')}} 
+	</div>
 	@endif
-	{{-- validation msg --}}
 	<div class="footer">
 		<div class="login-here">
 			<div class="login">
@@ -84,5 +91,5 @@
 			</div>
 		</div>
 	</div>
-	{{-- section ends  --}}
 @endsection
+{{-- section ends  --}}

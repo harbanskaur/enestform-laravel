@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as Auth;
 
-class login extends Model implements Authenticatable
+class Login extends Model implements Authenticatable
 {
     use HasFactory;
     use Auth;// authentication 
-    protected $table="signup";
-    public $timestamps=false;
+    protected $table = "signup";
+    public $timestamps = false;
 }

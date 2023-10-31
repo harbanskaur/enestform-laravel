@@ -1,15 +1,24 @@
 @extends('layouts.main')
-@section('main-section')
+@push('title')
+ Add Product Page
+@endpush
 {{-- section starts --}}
+@section('main-section') 
+
 <div class="main-categorious">
-	{{-- validation msg  --}}
-	@if(session('success'))
-	<div class="session">	{{session('success')}} </div>
+	{{-- message passing for sucsess --}}
+	@if(session('success')) 
+		<div class="session">	
+			{{session('success')}} 
+		</div>
+	{{-- message passing for error--}}
 	@elseif(session('error'))
-	<div class="session">	{{session('error')}} </div>
+		<div class="session">	
+			{{session('error')}} 
+		</div>
 	@endif
-	{{-- validation msg --}}
 	<div class="footer">
+		{{-- left list attachment --}}
 		@include('layouts.left')
 		<div class="contact">
 			<div class="contact-us">
@@ -40,8 +49,8 @@
 					<div class="quantity">
 						<form method="post" action="{{route('cart')}}">
 							@csrf
-						 {{-- table starts --}}
-							<table>
+							{{-- table starts --}}
+							<table>  
 								<tr>
 									<td><input type="number" hidden  name="product_id" value="{{$rows->id}}"></td>
 								</tr>
@@ -49,8 +58,8 @@
 									<td class="qty">Enter quantity</td>
 									<td><input type="number" name="qty"></td>
 								</tr>
-							</table>
-							{{-- table ends  --}}
+							</table> 
+							{{-- table ends  --}}	
 						<div class="price">
 							<span>{{$rows->pprice}}</span>
 						</div>
@@ -58,7 +67,7 @@
 					<div class="cart">
 						<input type="submit" name="save" value="Add to Cart">
 					</div>
-				</form>
+					</form>
 					<div class="checkout">
 						<input type="submit" name="" value="checkout">
 					</div>
@@ -91,9 +100,8 @@
 							</td>
 						</tr>
 					</table>
-					{{-- table 2 ends --}}
+					{{-- table 2 ends --}}	
 				</form>
 			</div>
-		</div>
-		{{-- section ends  --}}
-@endsection
+		</div>	
+@endsection {{-- section ends  --}}

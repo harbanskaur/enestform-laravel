@@ -1,8 +1,12 @@
 @extends('layouts.main')
-@section('main-section')
+@push('title')
+Contact Page 
+@endpush
 {{-- section starts --}}
+@section('main-section')
 <div class="main-categorious">
 	<div class="footer">
+		{{-- left list attachment --}}
 		@include('layouts.left')
 		<div class="contact">
 			<div class="contact-us">
@@ -62,5 +66,5 @@
 				</div>
 			</div>
 		</div>
-	{{-- section ends --}}
-	@endsection
+@endsection
+{{-- section ends  --}}

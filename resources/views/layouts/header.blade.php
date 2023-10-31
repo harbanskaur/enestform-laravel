@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-    <title>Document</title> 
+    <title> @stack ('title') </title> 
 </head>
 <body>
 <div class="main-div">
@@ -31,9 +31,9 @@
          <div class="pagnation">
             <div class="list">
                 <ul>
-                   <a href="{{url('/')}}"><li>ALL PRODUCTS</li></a>
-                   <a href="{{url('/category')}}"> <li>CATEGORY</li></a>>
-                   <a href="{{url('/addproduct')}}"><li>ADD PRODUCT</li></a>
+                   <a href=""><li>ALL PRODUCTS</li></a>
+                   <a href=""> <li>CATEGORY</li></a>>
+                   <a href=""><li>ADD PRODUCT</li></a>
                     <li>REVIEWS</li>
                     <a href="{{url('/contact')}}"><li>CONTACT</li></a>
                     <li>FAQS</li>
